@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash flow wesite</title>
+</head>
+<link rel="stylesheet" href="cashflow.css">
+<style>
+    .chart-container {
+    width: 400px;
+    height: 400px;
+    margin: 20px auto;
+}
+#warningMessage {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+.danger {
+    color: red;
+}
+.safe {
+    color: green;
+}
+</style>
+<body>
+    <h1>Cash Flow Dashboard</h1>
+    <form id = "expenseForm">
+        <label for="salary">Total Salary</label>
+        <input type = "number" id = "salary" placeholder="enter salary">
+         <br><br>
+        <label for="expenseName">Expense Name</label>
+        <input type = "text" id = "expenseName" placeholder="Expense Name">
+          <br><br>
+        <label for="expenseAmount">Expense Amount</label>
+        <input type = "number" id = "expenseAmount" placeholder="Expense Amount">
+         <br><br>
+        <button type="submit">Add Expense</button>
+        
+    </form>
+    <p id="error"></p>   
+    <hr>
+    <p id="warningMessage"></p>
+    <label for="currency">Currency:</label>
+
+<select id="currency">
+    <option value="INR">INR</option>
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+    <option value="GBP">GBP</option>
+</select>
+    <h2>Summary</h2>
+<div class="summary">
+
+    <div class="summary-card">
+        Total Salary
+        <span id="salaryDisplay">0</span>
+    </div>
+
+    <div class="summary-card">
+        Total Expenses
+        <span id="expenseDisplay">0</span>
+    </div>
+
+    <div class="summary-card">
+        Remaining Balance
+        <span id="balanceDisplay">0</span>
+    </div>
+
+</div>
+
+    <hr>
+    <h2>Expense List</h2>
+    <ul id="expenseList"></ul>
+    <button id="downloadPdf">Download Report</button>
+    <h2>Expense Chart</h2>
+    <div class="chart-container">
+    <canvas id="expenseChart"></canvas>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="cashflow.js"></script>
+</body>
+</html>
